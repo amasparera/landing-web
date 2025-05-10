@@ -8,11 +8,20 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
+     *  'title',
+        'content',
+        'image',
+        'video',
      */
     public function up(): void
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
+            $table->string('title')->unique();
+            $table->text('content')->nullable();
+            $table->string('image')->nullable();
+            $table->string('video')->nullable();
+            $table->enum('status', ['draft', 'published'])->default('draft');
             $table->timestamps();
         });
     }

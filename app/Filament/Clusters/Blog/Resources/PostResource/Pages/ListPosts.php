@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Filament\Resources\PostResource\Pages;
+namespace App\Filament\Clusters\Blog\Resources\PostResource\Pages;
 
-use App\Filament\Resources\PostResource;
+use App\Filament\Clusters\Blog\Resources\PostResource;
 use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
 
