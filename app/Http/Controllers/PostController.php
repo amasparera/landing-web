@@ -11,11 +11,11 @@ class PostController extends Controller
 
     public function index(Request $request)
     {
-        $limit = $request->query('limit');
-        $page = $request->query('page');
-        $offset = ($page - 1) * $limit;
+        $limit = $request->query('limit'); // 10
+        $page = $request->query('page') ?? 0; // 1
+        $offset = ($page) * $limit;
         return [
-            'posts' => Post::where('status', 'published')->orderBy('created_at', 'desc')->limit($limit ?? 10)->offset($offset ?? 0)
+            'posts' => Post::where('status', 'published')->orderBy('created_at', 'desc')->limit($limit ?? 10)->offset($offset)
                 ->get()
         ];
     }
